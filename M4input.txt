@@ -22,6 +22,7 @@ Recognizes the set of all decimal unsigned integer numbers without leading zeros
 (1 7 1)
 (1 8 1)
 (1 9 1)
+
 -7
 007
 3.14
