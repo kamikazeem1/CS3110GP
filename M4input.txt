@@ -1,3 +1,4 @@
+Recognizes the set of all decimal unsigned integer numbers without leading zeros except the number 0
 3
 1 2
 0 1 2 3 4 5 6 7 8 9

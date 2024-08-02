@@ -1,3 +1,4 @@
+Recognizes the set of strings over {0, 1} that ends with 0.
 2
 1
 0 1

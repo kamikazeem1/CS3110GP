@@ -3,11 +3,11 @@
 class UFA:
 
     def __init__(self, Q, A, E, d):
-        self.Q = Q
-        self.A = A
-        self.E = E
-        self.d = d
-        self.qi = '0'
+        self.Q = Q # set of states
+        self.A = A # set of accepting states
+        self.E = E # alphabet set
+        self.d = d # transitions (dictionary)
+        self.qi = '0' # string, initial default state
 
     def process(self, inputString):
         
@@ -16,10 +16,12 @@ class UFA:
         symgen = self.NextSymbol(inputString)
         
         while not exit:
+            # Get next symbol
             symbol = next(symgen)
             # If symbol is in the alphabet...
             if symbol in self.E:
-                # Move to next state
+                
+                # Move to next state(s)
                 nextStates = set()
                 for state in currentStates:
                     nextStates.update(self.NextState(state, symbol))

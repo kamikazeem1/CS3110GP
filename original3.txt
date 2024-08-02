@@ -1,3 +1,4 @@
+Recognizes the set of strings over {0, 1} that are odd in length and end with '00'.
 4
 3
 0 1

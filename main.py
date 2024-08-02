@@ -1,8 +1,13 @@
+
+
 from UFA import UFA
 
 def display(filename):
-    print("\n\nInputted Finite State Automaton Info:")
+
     with open(filename, "r") as f:
+
+        print(f"\n\nFA Description: {f.readline().strip()}")
+        print("Inputted Finite State Automaton Info:\n")
 
         Q = {str(i) for i in range(int(f.readline()))}
         print(f"1) Set of states: {Q}, initial state is state 0 (default)")
@@ -24,20 +29,29 @@ def display(filename):
                 d[key].add(nextState)
             else:
                 d[key] = {nextState}
-            print(f"{currentState} {symbol} {nextState}")
+            print(f"\t{currentState} {symbol} {nextState}")
             transition = f.readline().strip()
 
         fa = UFA(Q, A, E, d)
-        print("Results of test strings:")
+        print("\nResults of test strings:\n")
+        maxLength = 0
+        empty = "Empty string"
+        ts = []
         for teststring in f:
-            teststring = teststring.strip()
+            ts.append(teststring.strip())
+            maxLength = len(teststring) if len(teststring) > maxLength else maxLength
+        
+        for teststring in ts:
             if teststring:
-                print(f"{teststring}\t{fa.process(teststring)}")
+                print(f"{teststring:<{maxLength+2}}\t{fa.process(teststring)}")
             else:
-                print(f"Empty string\t{fa.process('')}")
-
+                print(f"{empty:<{maxLength+2}}\t{fa.process('')}")
 
 display("M1input.txt")
 display("M2input.txt")
 display("M3input.txt")
 display("M4input.txt")
+display("original1.txt")
+display("original2.txt")
+display("original3.txt")
+display("original4.txt")
